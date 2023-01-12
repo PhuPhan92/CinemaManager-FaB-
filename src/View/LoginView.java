@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class LoginView {
     public static UserView userView = new UserView();
+    public static User userLogin = new User();
     public static FABView fabView = new FABView();
     public static OrderView orderView = new OrderView();
     public static FABService fabService = new FABService();
@@ -26,25 +27,26 @@ public class LoginView {
     public void loginLauncher()  {
         boolean checkUserPassword = false;
         do{
-            System.out.println("-------------LOGIN------------");
-            System.out.println("--------ENTER USERNAME:-------");
-            String username = isNotEmpty();
-            System.out.println("--------ENTER PASSWORD:-------");
-            String password = isNotEmpty();
-            User checkUser = userService.checkUserNamePassword(username, password);
-            if ( checkUser != null) {
-                // Co ton tai user
+            try {
+                System.out.println("-------------LOGIN------------");
+                System.out.println("--------ENTER USERNAME:-------");
+                String username = isNotEmpty();
+                System.out.println("--------ENTER PASSWORD:-------");
+                String password = isNotEmpty();
+                User checkUser = userService.checkUserNamePassword(username, password);
+                userLogin.setId(userService.checkUserNamePassword(username, password).getId());
+                    // Co ton tai user
                 if (checkUser.getEPosition() == EPosition.MANAGER) {
                     menuAdminView(checkUser);
                 }else if (checkUser.getEPosition() == EPosition.STAFF){
                     menuStaffView(checkUser);
                 }
-            }else{
+            }
+            catch (Exception e){
                 System.out.println("WRONG !! TRY AGAIN");
                 checkUserPassword = true;
             }
         }while (checkUserPassword);
-
     }
 
     private String isNotEmpty() {

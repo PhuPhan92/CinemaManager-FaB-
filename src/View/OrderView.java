@@ -271,7 +271,8 @@ public class OrderView {
                 order.setId(id);
                 order.setDateOrder(new Date());
                 order.setStatus(EFaBStatus.PENDING);
-                order.setIdUser(System.currentTimeMillis() / 1000);
+                order.setIdUser(LoginView.userLogin.getId());
+//                order.setIdUser(System.currentTimeMillis() / 1000);
                 addNewOrderItem( id);
                 double total = getTotalForOrder(id);
                 order.setTotal(total);

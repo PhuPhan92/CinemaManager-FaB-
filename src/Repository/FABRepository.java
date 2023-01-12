@@ -6,7 +6,7 @@ import Service.FileContext;
 
 public class FABRepository extends FileContext<FAB> {
     public FABRepository(){
-        filePath = "C:\\Phu Phan\\CinemaManager\\data\\FAB.txt";
+        filePath = "C:\\Phu Phan\\CinemaManager-FaB-\\data\\FAB.txt";
         tClass = FAB.class;
     }
 
