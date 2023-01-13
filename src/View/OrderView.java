@@ -57,7 +57,6 @@ public class OrderView {
     }
     public void OrderLauncher(){
         boolean checkAction = false;
-
         do{
             RenderOrderMenu();
             int actionMenuProduct = Integer.parseInt(scanner.nextLine());

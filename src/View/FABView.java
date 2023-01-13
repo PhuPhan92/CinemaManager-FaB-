@@ -122,6 +122,13 @@ public class FABView {
             try {
                 long id = System.currentTimeMillis() / 1000;
                 String name = inputFABName();
+                boolean checkName = fabService.existByName(name);
+                if(checkName){
+                    System.out.println("FaB product is already on the list");
+                    addNewFAB();
+                }else{
+                    continue;
+                }
                 System.out.println("Enter size: 1 - M/ 2 - L/ 3 - OTHER");
                 int sizeID = Integer.parseInt(scanner.nextLine());
                 ESize size = ESize.toSize(sizeID);

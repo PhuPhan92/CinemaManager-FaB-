@@ -4,7 +4,7 @@ import java.text.Normalizer;
 import java.util.regex.Pattern;
 
 public class ValidateUtils {
-    public static final String NAME_PATTERN = "^[A-Z]([A-Z]*[a-z0-9]*[ ]?)+$";
+    public static final String NAME_PATTERN = "^[A-Z 0-9]([A-Z]*[a-z0-9]*[ ]?)+$";
 
     public static boolean validateProductName(String nameProduct) {
         return Pattern.compile(NAME_PATTERN).matcher(nameProduct).matches();

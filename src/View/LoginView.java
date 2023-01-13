@@ -66,29 +66,41 @@ public class LoginView {
         System.out.println("POSITION: " + checkUser.getEPosition());
         boolean checkActionMenuAdminContinue = true;
         do{
-            System.out.println("=======================================");
-            System.out.println("Please select the task you want to use:");
-            System.out.println("1. User Manager");
-            System.out.println("2. FaB Manager");
-            System.out.println("3. Order Manager");
-            System.out.println("4. Return Login");
-            int actionMenuAdmin = Integer.parseInt(scanner.nextLine().trim());
-            switch (actionMenuAdmin) {
-                case 1:
-                    userManagerForStaff(checkUser);
-                    break;
-                case 2:
-                    fabManagerForStaff(checkUser);
-                    break;
-                case 3:
-                    orderManagerForStaff(checkUser);
-                    break;
-                case 4:
-                    loginLauncher();
-                    break;
-                default:
-                    checkActionMenuAdminContinue = false;
+            try {
+                System.out.println("=======================================");
+                System.out.println("Please select the task you want to use:");
+                System.out.println("1. User Manager");
+                System.out.println("2. FaB Manager");
+                System.out.println("3. Order Manager");
+                System.out.println("4. Return Login");
+                System.out.println("5. Exit System");
+                int actionMenuAdmin = Integer.parseInt(scanner.nextLine().trim());
+                switch (actionMenuAdmin) {
+                    case 1:
+                        userManagerForStaff(checkUser);
+                        break;
+                    case 2:
+                        fabManagerForStaff(checkUser);
+                        break;
+                    case 3:
+                        orderManagerForStaff(checkUser);
+                        break;
+                    case 4:
+                        loginLauncher();
+                        break;
+                    case 5:
+                        System.exit(5);
+                        break;
+                    default:
+                        checkActionMenuAdminContinue = false;
+                }
+
+          }
+            catch (Exception e){
+                System.out.println("Error value!Type again!");
+                checkActionMenuAdminContinue = true;
             }
+
         }while (checkActionMenuAdminContinue);
     }
 
@@ -200,6 +212,7 @@ public class LoginView {
             System.out.println("3. FaB Manager");
             System.out.println("4. Order Manager");
             System.out.println("5. Return Login");
+            System.out.println("6. Exit System");
             int actionMenuAdmin = Integer.parseInt(scanner.nextLine().trim());
             switch (actionMenuAdmin) {
                 case 1:
@@ -217,6 +230,9 @@ public class LoginView {
                 case 5:
                     loginLauncher();
                     break;
+                case 6:
+                    System.exit(5);
+                    break;
                 default:
                     checkActionMenuAdminContinue = false;
             }
@@ -224,7 +240,7 @@ public class LoginView {
     }
 
     public static void main(String[] args) {
-        LoginView a = new LoginView();
+        LoginView a  = new LoginView();
         a.loginLauncher();
     }
 }

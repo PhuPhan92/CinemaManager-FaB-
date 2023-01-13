@@ -35,5 +35,12 @@ public class FABService {
             return false;
         }
     }
+    public boolean existByName(String name) {
+        if (findFABByName(name) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
